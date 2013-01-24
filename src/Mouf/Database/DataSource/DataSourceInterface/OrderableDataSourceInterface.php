@@ -1,5 +1,5 @@
 <?php
-namespace Mou\Database\DataSource\DataSourceInterface;
+namespace Mouf\Database\DataSource\DataSourceInterface;
 /**
  * The interface implemented by datasource that can be ordered according to their elements.
  *

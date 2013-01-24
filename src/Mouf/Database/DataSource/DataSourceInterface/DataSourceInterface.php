@@ -1,5 +1,5 @@
 <?php
-namespace Mou\Database\DataSource\DataSourceInterface;
+namespace Mouf\Database\DataSource\DataSourceInterface;
 /*
 Copyright 2007 - THE CODING MACHINE - David Négrier
 

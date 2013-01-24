@@ -1,5 +1,5 @@
 <?php
-namespace Mou\Database\DataSource\DataSourceInterface;
+namespace Mouf\Database\DataSource\DataSourceInterface;
 
 /**
  * A typical column from a datasource.
