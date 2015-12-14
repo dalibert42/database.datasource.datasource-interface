@@ -4,3 +4,6 @@ vendor/*
 .buildpath
 .project
 .settings
+build
+composer.lock
+composer.phar

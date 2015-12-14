@@ -1,6 +1,6 @@
 {
     "name": "mouf/database.datasource.datasource-interface",
-    "description": "This package only contains basic interfaces for implementing Data sources. Those data sources can be used by a range of objects, including the ExtDataGrid wrapper in Xaja, or other grids...",
+    "description": "This package only contains basic interfaces for implementing data sources.",
     "keywords": ["mouf", "datasource"],
     "homepage": "https://github.com/thecodingmachine/database.datasource.datasource-interface",
     "type": "mouf-library",
@@ -13,13 +13,21 @@
         }
     ],
     "require": {
-    	"php": ">=5.3.0",
-		"mouf/utils.common.formatters": ">=3.0-dev,<4.0",
-		"mouf/database.dbconnection": ">=2.0,<3.0"
+    	"php": ">=5.4",
+        "mouf/utils.value.value-interface": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.5",
+        "satooshi/php-coveralls": "^0.6.1"
     },
     "autoload": {
-        "psr-0": {
-            "Mouf": "src/"
+        "psr-4": {
+            "Mouf\\Utils\\DataSource\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mouf\\Utils\\DataSource\\": "tests/"
         }
     },
     "extra": {
