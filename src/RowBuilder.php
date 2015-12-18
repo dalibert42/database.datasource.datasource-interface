@@ -60,19 +60,25 @@ class RowBuilder implements RowInterface
         $row = [];
         foreach($this->mergedRows as $mergeRow) {
             $mergeRow->setParameters($this->params);
-            $row += $mergeRow->getRow();
+            if($currentRow = $mergeRow->getRow()) {
+                $row += $currentRow;
+            }
         }
 
         foreach($this->datasourceAttributes as $key => $dataSourceAttribute) {
             /* @var $dataSourceAttribute DataSourceInterface */
             $dataSourceAttribute->setParameters($this->params);
-            $row[$key] = $dataSourceAttribute->getData();
+            if($currentData = $dataSourceAttribute->getData()) {
+                $row[$key] = $currentData;
+            }
         }
 
         foreach($this->rowAttributes as $key => $rowAttribute) {
             /* @var $rowAttribute RowInterface */
             $rowAttribute->setParameters($this->params);
-            $row[$key] = $rowAttribute->getRow();
+            if($currentRow = $rowAttribute->getRow()) {
+                $row[$key] = $currentRow;
+            }
         }
 
         return $row;
