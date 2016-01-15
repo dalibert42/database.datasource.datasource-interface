@@ -28,11 +28,6 @@ class ArrayMapper implements DataSourceInterface
     /**
      * @var array
      */
-    private $data = [];
-
-    /**
-     * @var array
-     */
     private $params;
 
     /**
@@ -54,17 +49,13 @@ class ArrayMapper implements DataSourceInterface
      */
     public function getData()
     {
-        if (!empty($this->data)) {
-            return $this->data;
-        }
-
+        $data = [];
         foreach ($this->dataSource->getData() as $row) {
-            $this->data[] = array_map(function (PickerInterface $picker) use ($row) {
+            $data [] = array_map(function (PickerInterface $picker) use ($row) {
                 return $picker->pick(new Row($row));
             }, $this->matchers);
         }
-
-        return $this->data;
+        return $data;
     }
 
     /**

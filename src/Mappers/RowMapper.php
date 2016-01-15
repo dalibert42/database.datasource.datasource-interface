@@ -27,11 +27,6 @@ class RowMapper implements RowInterface
     /**
      * @var array
      */
-    private $data;
-
-    /**
-     * @var array
-     */
     private $params;
 
     /**
@@ -52,15 +47,9 @@ class RowMapper implements RowInterface
      */
     public function getRow()
     {
-        if (!empty($this->data)) {
-            return $this->data;
-        }
-
-        $this->data = array_map(function(PickerInterface $picker) {
+        return array_map(function(PickerInterface $picker) {
             return $picker->pick($this->row);
         }, $this->matchers);
-
-        return $this->data;
     }
 
     /**
