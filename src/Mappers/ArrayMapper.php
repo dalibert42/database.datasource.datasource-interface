@@ -51,9 +51,12 @@ class ArrayMapper implements DataSourceInterface
     {
         $data = [];
         foreach ($this->dataSource->getData() as $row) {
-            $data [] = array_map(function (PickerInterface $picker) use ($row) {
-                return $picker->pick(new Row($row));
-            }, $this->matchers);
+            foreach ($this->matchers as $picker){
+                if (!($return = $picker->pick(new Row($row)))) {
+                    continue;
+                }
+                $data [] = $return;
+            }
         }
         return $data;
     }
